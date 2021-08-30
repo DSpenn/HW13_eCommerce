@@ -71,29 +71,24 @@ Your database should contain the following four models, including the requiremen
     * Doesn't allow null values.
 
 * `Product`
-
-  * `id`
+  [X] `id`
     * Integer.
     * Doesn't allow null values.
     * Set as primary key.
     * Uses auto increment.
-
-  * `product_name`
+  [X] `product_name`
     * String.
     * Doesn't allow null values.
-
   * `price`
-    * Decimal.
-    * Doesn't allow null values.
-    * Validates that the value is a decimal.
-
+    [X] Decimal.
+    [X] Doesn't allow null values.
+    [X] Validates that the value is a decimal.
   * `stock`
-    * Integer.
-    * Doesn't allow null values.
-    * Set a default value of `10`.
-    * Validates that the value is numeric.
-
-  * `category_id`
+    [X] Integer.
+    [X] Doesn't allow null values.
+    [X] Set a default value of `10`.
+    [X] Validates that the value is numeric.
+  [X] `category_id`
     * Integer.
     * References the `Category` model's `id`.
 
@@ -109,8 +104,7 @@ Your database should contain the following four models, including the requiremen
     * String.
 
 * `ProductTag`
-
-  * `id`
+  [X] `id`
     * Integer.
     * Doesn't allow null values.
     * Set as primary key.
