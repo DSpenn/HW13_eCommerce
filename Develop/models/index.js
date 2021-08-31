@@ -19,11 +19,11 @@ Product.belongsToMany(Tag, {
   // Define the third table needed to store the foreign keys
   through: {
     model: ProductTag,
-    unique: false
+    unique: false,
   },
   //// Define an alias for when data is retrieved
   //as: 'ProductTag',
-//  onDelete: 'CASCADE'
+  //onDelete: 'CASCADE'
   });
 
 Tag.belongsToMany(Product, {
@@ -31,7 +31,7 @@ Tag.belongsToMany(Product, {
       model: ProductTag,
       unique: false,
     },
-  //  onDelete: 'CASCADE'
+    //onDelete: 'CASCADE'
   });
 
 module.exports = {
