@@ -18,9 +18,9 @@ Product.belongsToMany(Tag, {   // Define the third table needed to store the for
   through: {
     model: ProductTag,
     unique: false,
-    foreignKey: "product_id"
+    foreignKey: "product_id",
   },
-  as: "product_Tags"
+  as: "product_Tags",
   //onDelete: 'CASCADE'
   });
 
@@ -28,9 +28,9 @@ Tag.belongsToMany(Product, {
     through: { 
       model: ProductTag,
       unique: false,
-      foreignKey: "tag_id"
+      foreignKey: "tag_id",
     },
-    as: "tagged_Products"
+    as: "tagged_Products",
     //onDelete: 'CASCADE'
   });
 

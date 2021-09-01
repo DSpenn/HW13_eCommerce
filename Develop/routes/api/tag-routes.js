@@ -8,7 +8,8 @@ router.get('/', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findAll({
-      include: [{model: Product, as: 'tagged_Products', through: ProductTag}]
+      
+      include: [{ association: 'tagged_Products', through: { attributes: ['id','product_id','tag_id'] }}]
   });
     res.status(200).json(tagData);
   } catch (err) {
@@ -21,8 +22,27 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Product data
   try {
     const tagData = await Tag.findByPk(req.params.id, {
-      include: [{model: Product, as: 'tagged_Products', through: ProductTag, required:true}]
+      include: [{ association: 'tagged_Products', through: {
+        attributes: ['id','product_id','tag_id']
+        }}]
     });
+    // a bunch of things i tried to remove duplicates
+    //      include: [{model: Product, as: 'tagged_Products', through: ProductTag }]
+     //include: [{model: Product, as: 'tagged_Products', through: ProductTag, exclude:'ProductTag.product_id' }]
+    //        model: Product, as: 'tagged_Products',
+    //distinct:true,required: true
+    //attributes: ['id','product_name','price']
+    // everything ive tried to remove duplicates from results.
+    // plain: false, raw: true
+    //joinTableAttributes: 
+    //duplicating: false,
+            //include: { association: 'tagged_Products' },
+                //include: [{model: Product, as: 'tagged_Products', through: ProductTag, required:true}]       //{attributes: exclude: 'tagged_Products->product_tag.tag_id', 'tagged_Products.product_tag.productId'}]
+        //include: [{model: Product, as: 'tagged_Products', through: ProductTag}]
+        //attributes: { exclude: ['tagged_Products.product_tag.productId'] }
+        //include: [{model: Product, as: 'tagged_Products', through: ProductTag, required:true}]
+        //attributes: { exclude: ['tagged_Products.product_tag.tagId', 'tagged_Products.product_tag.productId']},
+        //include: { association: 'tagged_Products' },
 
     if (!tagData) {
       res.status(404).json({ message: 'No Tag found with this id!' });
