@@ -6,7 +6,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', async (req, res) => { 
   try {
     const productData = await Product.findAll({
-      include: [{ model: Category }, { model: Tag }],
+      include: [{ model:Category }, { model: Tag, through: ProductTag, as: "product_Tags", required:true}]
     });
     res.status(200).json(productData);
   } catch (err) {
@@ -19,7 +19,10 @@ router.get('/', async (req, res) => {
   router.get('/:id', async (req, res) => { 
     try {
       const productData = await Product.findByPk(req.params.id, {
-        include: [{ model: Category },  { model: Tag }]
+        
+        include: [{ model:Category }, { model: Tag, through: ProductTag, as: "product_Tags", required:true}]
+        //include: [{ model: Category, through: Tag, as: 'tag_Products'}]
+        //include: [{ model: Category },  { model: Tag, through:ProductTag, as: 'tag_Products', required:true}]
       });
   
       if (!productData) {
@@ -41,12 +44,14 @@ router.post('/', async (req, res) => {
       price: 200.00,
       stock: 3,
       tagIds: [1, 2, 3, 4]
-    }
-  */
+    } */
+    console.log("req.body.tagIds", req.body.tagIds);
+    console.log("req.body.tagIds.length", req.body.tagIds.length);
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {
+        //const productTagIds = productTags.map(({ tagIds }) => tag_id);
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
@@ -108,8 +113,7 @@ router.put('/:id', async (req, res) => {   // update product data
 });
 
 
-router.delete('/:id', async (req, res) => {
-  // delete one product by its `id` value
+router.delete('/:id', async (req, res) => { // delete one product by its `id` value
   try {
     const ProductData = await Product.destroy({
       where: {

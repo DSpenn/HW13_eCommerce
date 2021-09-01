@@ -58,27 +58,24 @@ Use the `schema.sql` file in the `db` folder to create your database with MySQL 
 
 Your database should contain the following four models, including the requirements listed for each model:
 
-* `Category`
-
-  * `id`
-    * Integer.
-    * Doesn't allow null values.
-    * Set as primary key.
-    * Uses auto increment.
-
-  * `category_name`
-    * String.
-    * Doesn't allow null values.
-
+[X] `Category`
+  [X] `id`
+    [X] Integer.
+    [X] Doesn't allow null values.
+    [X] Set as primary key.
+    [X] Uses auto increment.
+  [X] `category_name`
+    [X] String.
+    [X] Doesn't allow null values.
 * `Product`
   [X] `id`
-    * Integer.
-    * Doesn't allow null values.
-    * Set as primary key.
-    * Uses auto increment.
+    [X] Integer.
+    [X] Doesn't allow null values.
+    [X] Set as primary key.
+    [X] Uses auto increment.
   [X] `product_name`
-    * String.
-    * Doesn't allow null values.
+    [X] String.
+    [X] Doesn't allow null values.
   * `price`
     [X] Decimal.
     [X] Doesn't allow null values.
@@ -89,51 +86,43 @@ Your database should contain the following four models, including the requiremen
     [X] Set a default value of `10`.
     [X] Validates that the value is numeric.
   [X] `category_id`
-    * Integer.
-    * References the `Category` model's `id`.
-
-* `Tag`
-
-  * `id`
-    * Integer.
-    * Doesn't allow null values
-    * Set as primary key.
-    * Uses auto increment.
-
-  * `tag_name`
-    * String.
-
-* `ProductTag`
+    [X] Integer.
+    [X] References the `Category` model's `id`.
+[X] `Tag`
   [X] `id`
-    * Integer.
-    * Doesn't allow null values.
-    * Set as primary key.
-    * Uses auto increment.
+    [X] Integer.
+    [X] Doesn't allow null values
+    [X] Set as primary key.
+    [X] Uses auto increment.
+  [X] `tag_name`
+    [X] String.
+[] `ProductTag`
+  [X] `id`
+    [X] Integer.
+    [X] Doesn't allow null values.
+    [X] Set as primary key.
+    [X] Uses auto increment.
 
-  * `product_id`
-    * Integer.
-    * References the `Product` model's `id`.
+  [x] `product_id`
+    [X] Integer.
+    [X] References the `Product` model's `id`.
 
-  * `tag_id`
-    * Integer.
-    * References the `Tag` model's `id`.
+  [x] `tag_id`
+    [X] Integer.
+    [X] References the `Tag` model's `id`.
 
 ### Associations
 
 You'll need to execute association methods on your Sequelize models to create the following relationships between them:
 
-[] `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
-
-[] `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
+[X] `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
+[X] `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
 > **Hint:** Make sure you set up foreign key relationships that match the column we created in the respective models.
 
 ### Fill Out the API Routes to Perform RESTful CRUD Operations
 
 Fill out the unfinished routes in `product-routes.js`, `tag-routes.js`, and `category-routes.js` to perform create, read, update, and delete operations using your Sequelize models.
-
 Note that the functionality for creating the many-to-many relationship for products has already been completed for you.
-
 > **Hint**: Be sure to look at the mini-project code for syntax help and use your model's column definitions to figure out what `req.body` will be for POST and PUT routes!
 
 ### Seed the Database
@@ -148,7 +137,7 @@ Create the code needed in `server.js` to sync the Sequelize models to the MySQL 
 
 This homework is graded based on the following criteria: 
 
-[] The GitHub repository containing your application code.
+[] The URL The GitHub repository containing your application code.
 
 [] A walkthrough video that demonstrates the functionality of the e-commerce back end must be submitted, and a link to the video should be included in your readme file.
 [] The walkthrough video must show all of the technical acceptance criteria being met.
@@ -158,16 +147,16 @@ This homework is graded based on the following criteria:
 [] The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia Core.
 [] The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia Core.
 [] The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia Core.
-  [] Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
-  [] Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
+  [X] Connects to a MySQL database using the [MySQL2](https://www.npmjs.com/package/mysql) and [Sequelize](https://www.npmjs.com/package/sequelize) packages.
+  [X] Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the [dotenv](https://www.npmjs.com/package/dotenv) package.
   [] Syncs Sequelize models to a MySQL database on the server start.
-  [] Includes column definitions for all four models outlined in the homework instructions.
-  [] Includes model associations outlined in the homework instructions.
-[] Repository has a unique name.
-[] Repository follows best practices for file structure and naming conventions.
-[] Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-[] Repository contains multiple descriptive commit messages.
+  [X] Includes column definitions for all four models outlined in the homework instructions.
+  [X] Includes model associations outlined in the homework instructions.
+[X] Repository has a unique name.
+[X] Repository follows best practices for file structure and naming conventions.
+[X] Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
+[X] Repository contains multiple descriptive commit messages.
 [] Repository contains quality readme with description and a link to a walkthrough video.
 
 [] A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
-[] The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
+[X] The URL of the GitHub repository

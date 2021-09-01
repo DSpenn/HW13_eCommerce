@@ -36,7 +36,7 @@ Product.init(
       allowNull: true,
       references: {
           model: "category",
-          key: "id",
+          key: "id"
           //unique: false,
       }
     },
@@ -46,7 +46,7 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'product'
   }
 );
 
