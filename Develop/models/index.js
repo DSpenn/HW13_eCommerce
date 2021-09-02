@@ -16,7 +16,7 @@ Category.hasMany(Product, { // category can have multiple products but a product
 Product.belongsToMany(Tag, {   // Define the third table needed to store the foreign key
   through: {
     model: ProductTag,
-    //foreignKey: "product_id"
+    foreignKey: "product_id"
   },
   as: "product_Tags"
   });
