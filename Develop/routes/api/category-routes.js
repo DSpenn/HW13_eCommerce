@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { Category, Product, Tag } = require('../../models');
 
-  // find all categories
-  // be sure to include its associated Products
-  router.get('/', async (req, res) => {        //********************************************** */
+  // find all categories   // be sure to include its associated Products
+  router.get('/', async (req, res) => { 
   try {
     const categoryData = await Category.findAll({
       include: [{ model: Product }]
@@ -14,8 +13,7 @@ const { Category, Product, Tag } = require('../../models');
   }
 }); 
 
-  // find one category by its `id` value
-  // be sure to include its associated Products
+  // find one category by its `id` value // be sure to include its associated Products
 router.get('/:id', async (req, res) => { 
   try {
     const categoryData = await Category.findByPk(req.params.id, {
@@ -41,10 +39,7 @@ router.post('/', async (req, res) => {   // create a new category
   }
 });
 
-
-
- // update a category by its `id` value
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {  // update a category by its `id` value
   console.log("req.body", req.body);
   try {
     const categoryData = await Category.update(
@@ -74,13 +69,11 @@ router.delete('/:id', async (req, res) => {   // delete a category by its `id` v
         id: req.params.id
       }
     });
-
     if (!categoryData) {
       res.status(404).json({ message: 'No Category found with this id!' });
       return;
     }
-
-    res.status(200).json(categoryData);
+    res.status(200).json("Deleted Category with ID:"+ req.params.id);
   } catch (err) {
     res.status(500).json(err);
   }
