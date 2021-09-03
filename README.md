@@ -14,8 +14,7 @@ Uses the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://
 
 ## Video
 
-[![Walkthrough Video]](LINK SOON™)
-
+[![Walkthrough Video]](https://user-images.githubusercontent.com/84486941/131939818-b7bd60dd-3445-44a8-b08a-f62f5cd5833b.mp4)
 
 ## Acceptance Criteria
 
