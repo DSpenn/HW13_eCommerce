@@ -42,6 +42,7 @@ THEN I am able to successfully create, update, and delete data in my database
 ### Database Models
 
 Your database should contain the following four models, including the requirements listed for each model:
+```md
 [X] `Category`
   [X] `id`
     [X] Integer.
@@ -92,14 +93,14 @@ Your database should contain the following four models, including the requiremen
   [x] `tag_id`
     [X] Integer.
     [X] References the `Tag` model's `id`.
-
+```
 ### Associations
-
+```
 [X] `Product` belongs to `Category`, and `Category` has many `Product` models, as a category can have multiple products but a product can only belong to one category.
 [X] `Product` belongs to many `Tag` models, and `Tag` belongs to many `Product` models. Allow products to have multiple tags and tags to have many products by using the `ProductTag` through model.
-
+```
 ## Grading Requirements
-
+```
 This homework is graded based on the following criteria: 
 
 [X] The URL The GitHub repository containing your application code.
@@ -123,3 +124,4 @@ This homework is graded based on the following criteria:
 [] Repository contains quality readme with description and a link to a walkthrough video.
 [] A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 [X] The URL of the GitHub repository
+```
