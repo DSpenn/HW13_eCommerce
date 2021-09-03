@@ -106,6 +106,7 @@ This homework is graded based on the following criteria:
 [X] The walkthrough video must demonstrate GET routes for all categories, all products, and all tags being tested in Insomnia Core.
 [X] The walkthrough video must demonstrate GET routes for a single category, a single product, and a single tag being tested in Insomnia Core.
 [X] The walkthrough video must demonstrate POST, PUT, and DELETE routes for categories, products, and tags being tested in Insomnia Core.
+[X] A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 [X] Connects to a MySQL database using MySQL2 and Sequelize packages.
 [X] Stores sensitive data, like a user’s MySQL username, password, and database name, using environment variables through the dotenv package.
 [X] Syncs Sequelize models to a MySQL database on the server start.
@@ -116,6 +117,5 @@ This homework is graded based on the following criteria:
 [X] Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
 [X] Repository contains multiple descriptive commit messages.
 [] Repository contains quality readme with description and a link to a walkthrough video.
-[] A walkthrough video demonstrating the functionality of the application and all of the acceptance criteria being met.
 [X] The URL of the GitHub repository
 ```
