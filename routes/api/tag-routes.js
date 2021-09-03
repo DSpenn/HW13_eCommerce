@@ -57,7 +57,6 @@ router.put('/:id', async (req, res) => {   // update a tag's name by its `id` va
       res.status(404).json({ message: 'No tag with this id!' });
       return;
     }
-    //res.status(200).json(tagData);
     res.status(200).json("Updated Tag with ID:"+ req.params.id);
   } catch (err) {
     res.status(500).json(err);
